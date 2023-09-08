@@ -51,7 +51,7 @@ In case of problems try to prune your system. Stop all containers and then:
 podman system prune
 ```
 
-in the case tah your problems continnue ou can do a fresh start by removing all data:
+in the case tah your problems continue ou can do a fresh start by removing all data:
 ```bash
 minikube stop
 minikube delete
