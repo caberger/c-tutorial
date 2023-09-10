@@ -1,0 +1,7 @@
+/target
+/CMakeFiles
+Makefile
+CMakeCache.txt
+cmake_install.cmake
+*.dSYM
+build

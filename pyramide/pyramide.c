@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include "pyramide.h"
 
-Pyramide createPyramide() {
-	Pyramide pyramide;
-	pyramide.currentLine = 0;
-	pyramide.currentRow = 0;
-	
-	return pyramide;
+int main(void) {
+    for (int i = 0; i < 10; i++) {
+        printf("hello world! %d\n", i);
+    }
+    return 0;
 }
