@@ -8,7 +8,8 @@
             "name": "Osx Debugging",
             "type": "lldb",
             "request": "launch",
-            "program": "${command:cmake.launchTargetPath}", // Resolved by CMake Tools
+            // Resolved by CMake Tools:
+            "program": "${command:cmake.launchTargetPath}",            
             "args": [],
             "cwd": "${workspaceFolder}"
         }
