@@ -23,10 +23,9 @@
             "type": "lldb",
             "request": "launch",
             // Resolved by CMake Tools:
-            "program": "${command:cmake.launchTargetPath}",
-            //"program": "${workspaceFolder}/pyramide/target/pyramide",
+            "program": "${command:cmake.launchTargetPath}",            
             "args": [],
-            "cwd": "${workspaceFolder}/pyramide"
+            "cwd": "${workspaceFolder}/tic-tac-toe"
         }
     ]
 }
