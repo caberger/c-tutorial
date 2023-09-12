@@ -2,8 +2,7 @@
 
 namespace core.Models
 {
-    public class 
-        MovieDbContext : DbContext
+    public class MovieDbContext : DbContext
     {
         public MovieDbContext(DbContextOptions<MovieDbContext> options): base(options)
         {

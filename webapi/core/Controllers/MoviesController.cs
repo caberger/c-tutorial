@@ -1,6 +1,6 @@
 using core.Models;
+using core.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace core.Controllers
 {
@@ -8,19 +8,24 @@ namespace core.Controllers
     [Route("movies")]
     public class MoviesController : ControllerBase
     {
-        private readonly MovieDbContext _dbContext;
-        private readonly ILogger<MoviesController> _logger;
 
-        public MoviesController(ILogger<MoviesController> logger, MovieDbContext context)
+        private readonly MovieDbContext dbContext;
+        private readonly ILogger<MoviesController> logger;
+        private readonly IGreetingService greeter;
+
+        public MoviesController(ILogger<MoviesController> logger, MovieDbContext context, IGreetingService greeter)
         {
-            _logger = logger;
-            _dbContext = context;
+            this.logger = logger;
+            this.dbContext = context;
+            this.greeter = greeter;
         }
-
         [HttpGet(Name = "GetMovies")]
-        async public Task<ActionResult<IEnumerable<Movie>>> Get()
+        public List<Movie> Get()
         {
-            return await _dbContext.Movies.ToListAsync();
+            //var result = _dbContext.Movies.FromSql($"SELECT * FROM movies").ToList();
+            logger.LogInformation(greeter.hello());
+            var result = dbContext.Movies.ToList();
+            return result;
         }
     }
 }
