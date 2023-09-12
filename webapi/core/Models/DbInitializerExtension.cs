@@ -2,7 +2,7 @@
 {
     internal static class DbInitializerExtension
     {
-        public static IApplicationBuilder UseItToSeedSqlServer(this IApplicationBuilder app)
+        public static IApplicationBuilder SeedDatabaseContents(this IApplicationBuilder app)
         {
             ArgumentNullException.ThrowIfNull(app, nameof(app));
 
@@ -10,7 +10,7 @@
             var services = scope.ServiceProvider;
             try
             {
-                var context = services.GetRequiredService<MovieContext>();
+                var context = services.GetRequiredService<MovieDbContext>();
                 DbInitializer.Initialize(context);
             }
             catch (Exception ex)

@@ -8,11 +8,10 @@ namespace core.Controllers
     [Route("movies")]
     public class MoviesController : ControllerBase
     {
-        private MovieContext _dbContext;
-
+        private readonly MovieDbContext _dbContext;
         private readonly ILogger<MoviesController> _logger;
 
-        public MoviesController(ILogger<MoviesController> logger, MovieContext context)
+        public MoviesController(ILogger<MoviesController> logger, MovieDbContext context)
         {
             _logger = logger;
             _dbContext = context;
@@ -21,10 +20,6 @@ namespace core.Controllers
         [HttpGet(Name = "GetMovies")]
         async public Task<ActionResult<IEnumerable<Movie>>> Get()
         {
-            if (_dbContext.Movies == null)
-            {
-                return NotFound();
-            }
             return await _dbContext.Movies.ToListAsync();
         }
     }
