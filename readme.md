@@ -13,7 +13,7 @@ winget install Microsoft.WindowsTerminal
 
 ### setup your environment (once)
 ```bash
-podman machine init
+podman machine init --cpus 2
 podman machine set --rootful
 podman machine start
 minikube --driver=podman start
