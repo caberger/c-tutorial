@@ -2,7 +2,8 @@ using core.Models;
 using core.Services;
 using Microsoft.EntityFrameworkCore;
 
-static void StartApplication(string[] args) {
+static void StartApplication(string[] args)
+{
     var builder = WebApplication.CreateBuilder(args);
     var services = builder.Services;
     services.AddControllers();
@@ -15,7 +16,8 @@ static void StartApplication(string[] args) {
     if (builder.Environment.IsDevelopment())
     {
         services.AddScoped<IGreetingService, DebugHelloGreeter>(); // demo for providing dependency injection
-    } else
+    }
+    else
     {
         services.AddScoped<IGreetingService, ReleaseHelloGreeter>(); // demo for providing dependency injection
     }
@@ -26,7 +28,8 @@ static void StartApplication(string[] args) {
         app.UseSwagger();
         app.UseSwaggerUI();
         app.SeedDatabaseContents();    //custom extension method to seed the initial data into the DB
-    } else
+    }
+    else
     {
         services.AddScoped<IGreetingService, ReleaseHelloGreeter>(); // demo for providing dependency injection 
     }
