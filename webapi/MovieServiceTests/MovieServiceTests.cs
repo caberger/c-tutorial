@@ -16,7 +16,6 @@ namespace MovieServiceTests
                     .Get("http://localhost:5025/movies")
                     .Then()
                         .Log(RestAssured.Response.Logging.ResponseLogLevel.All)
-                    .Then()
                         .AssertThat()
                             .StatusCode(200)
                         .And()
