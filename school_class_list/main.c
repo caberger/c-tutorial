@@ -15,6 +15,8 @@ int main(void) {
 	strcpy(person->first_name, "Jane");
 	strcpy(person->last_name, "Roe");
 	person->year_of_birth = 1995;
+	(*person->header)();
+	(*person->greet)(person, "Student");
 
 	(person->print)(person);
 
@@ -23,7 +25,8 @@ int main(void) {
 	strcpy(person2->first_name, "Joe");
 	strcpy(person2->last_name, "Sixpack");
 	person2->year_of_birth = 1997;
-
+	(*person2->header)();
+	(*person2->greet)(person, "Normale Person");
 	(*person2->print)(person2);
 	
 	printf("=== done ===\n");
