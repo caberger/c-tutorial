@@ -12,6 +12,10 @@ static void person_greet(Person *this, const char *greeting) {
 static void person_header() {
 	printf("******\n");
 }
+static void person_delete(Person *this) {
+	free(this);
+}
+
 /**
 * Creates new Person and always makes it valid
 * @param void
@@ -22,6 +26,7 @@ Person* person_new() {
 	this->print = &person_print;
 	this->greet = &person_greet;
 	this->header = &person_header;
+	this->delete = &person_delete;
 	return this;
 }
 
